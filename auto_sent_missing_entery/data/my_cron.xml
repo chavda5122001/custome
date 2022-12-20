@@ -1,0 +1,28 @@
+<odoo>
+    <record id="test_sale_order_cron" model="ir.cron">
+        <field name="name">check cron job</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="code">model.test_cron_job()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+    <data>
+        <record id="mail_template_opd_details" model="mail.template">
+            <field name="name">Opd Email</field>
+            <field name="model_id" ref="auto_sent_missing_entery.model_sale_order"/>
+            <field name="email_from">{{ (user.email) }}</field>
+            <field name="email_to">chavdadhiraj2712@gmail.com</field>
+            <field name="subject">Cron Job method 😜</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding:0px;">
+                    <p style="margin: 12px; padding:0px; font-size: 13px;">
+                        Test Cron Job Method in First Time
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
